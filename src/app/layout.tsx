@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Outreach',
-  description: 'Simple email sequence platform',
+  title: 'Block Outreach',
+  description: 'Block & Mortar email platform',
 };
 
 export default function RootLayout({

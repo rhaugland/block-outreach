@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
   const { to, subject, body_html, from_email } = await req.json();
 
   const result = await getResend().emails.send({
-    from: from_email || process.env.RESEND_FROM_EMAIL || 'ryan@loveablecreechurs.com',
+    from: from_email || process.env.RESEND_FROM_EMAIL || 'support@blockandmortar.co',
     to,
     subject,
     html: body_html,
@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
 
   await sql`
     INSERT INTO inbox_messages (contact_id, from_email, to_email, subject, body_text, body_html, direction)
-    VALUES (${contactId}, ${from_email || process.env.RESEND_FROM_EMAIL || 'ryan@loveablecreechurs.com'}, ${to}, ${subject}, ${body_html}, ${body_html}, 'outbound')
+    VALUES (${contactId}, ${from_email || process.env.RESEND_FROM_EMAIL || 'support@blockandmortar.co'}, ${to}, ${subject}, ${body_html}, ${body_html}, 'outbound')
   `;
 
   return NextResponse.json({ ok: true, id: result.data?.id });

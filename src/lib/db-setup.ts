@@ -25,7 +25,7 @@ async function setup() {
     CREATE TABLE IF NOT EXISTS strategies (
       id SERIAL PRIMARY KEY,
       name TEXT NOT NULL,
-      from_email TEXT NOT NULL DEFAULT 'you@yourdomain.com',
+      from_email TEXT NOT NULL DEFAULT 'support@blockandmortar.co',
       created_at TIMESTAMPTZ DEFAULT NOW()
     )
   `;

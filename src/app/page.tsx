@@ -62,7 +62,7 @@ export default function OutreachApp() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
             </svg>
           </button>
-          <span className="text-[18px] select-none font-display font-bold tracking-tight" style={{ color: 'var(--text)', letterSpacing: '-.03em' }}>Outreach</span>
+          <span className="text-[18px] select-none font-display font-bold tracking-tight" style={{ color: 'var(--text)', letterSpacing: '-.03em' }}>Block Outreach</span>
         </div>
 
         <div className="flex items-center gap-6 text-[13px]" style={{ color: 'var(--text-soft)' }}>
@@ -337,7 +337,7 @@ function ListPopover({ lists, strategies, onRefresh }: { lists: List[]; strategi
 function NewStrategyPopover({ onDone }: { onDone: () => void }) {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
-  const [from, setFrom] = useState('ryan@loveablecreechurs.com');
+  const [from, setFrom] = useState('support@blockandmortar.co');
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -548,7 +548,7 @@ function MessageDetail({ message, thread, onSent }: { message: Message; thread: 
     if (!replyBody) return;
     setSending(true);
     await fetch('/api/inbox', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ to: message.from_email, subject: `Re: ${message.subject}`, body_html: replyBody, from_email: message.to_email || 'ryan@loveablecreechurs.com' }) });
+      body: JSON.stringify({ to: message.from_email, subject: `Re: ${message.subject}`, body_html: replyBody, from_email: message.to_email || 'support@blockandmortar.co' }) });
     setSending(false); setReplyBody(''); onSent();
   };
 
