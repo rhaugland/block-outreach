@@ -18,8 +18,8 @@ export async function POST(req: NextRequest) {
 
   const { type, data } = body;
 
-  // Handle inbound email
-  if (type === 'email.received' || data?.from) {
+  // Only handle actual inbound emails — ignore sent/delivered/bounced events
+  if (type === 'email.received') {
     const fromEmail = typeof data.from === 'string' ? data.from : data.from?.email || data.from?.[0]?.email || '';
     const toEmail = typeof data.to === 'string' ? data.to : data.to?.email || data.to?.[0]?.email || '';
     const subject = data.subject || '(no subject)';
